@@ -1,0 +1,37 @@
+.nav-bar {
+	width: 100%;
+	display: flex;
+	background-color: #585656;
+	color: white;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#game-title {
+	margin-left: 10px;
+	font-weight: 900;
+	font-size: 20px;
+}
+
+.reset-btn {
+	color: white;
+	background-color: #199319;
+	padding: 10px 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+	text-decoration: none;
+	border-radius: 5px;
+	box-shadow: 2px 1px 6px 1px rgba(0,0,0,0.24);
+}
+
+.reset-btn:hover {
+	display: inline-block;
+	cursor: pointer;
+	background-color: #223094;
+	transform: translateY(1px);
+}
+
+.reset-btn:active {
+	display: inline-block;
+	transform: translateY(2px);
+}
