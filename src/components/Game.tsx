@@ -5,7 +5,7 @@ import Footer from './Footer';
 
 class Tile {
 	id: string = '';
-	tileValue: string = "#000000";
+	tileValue: string = "";
 	defaultValue: string = '#000000';
 	matched: boolean = false;
 	clicked: boolean = false;
