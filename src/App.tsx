@@ -14,7 +14,7 @@ function App() {
 	console.log(ship)
   return (
     <div className="App">
-			{ship ? <Game /> : <p>Confirming you have a ship and aren't poor</p>}
+			{ship ? <Game ship={ship}/> : <p>Confirming you have a ship and aren't poor</p>}
     </div>
   );
 }

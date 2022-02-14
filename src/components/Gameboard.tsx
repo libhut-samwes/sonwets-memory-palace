@@ -4,7 +4,7 @@ import './Gameboard.css'
 
 function Gameboard(props: any) {
 	const [matchCheck, setMatchCheck] = useState<string[]>([])
-	const { tiles, incrementTurn, tileClickedToggle, tileMatchedToggle } = props;
+	const { library, tiles, incrementTurn, tileClickedToggle, tileMatchedToggle } = props;
 	function matchHandler(i: number) {
 		setTimeout(() => {
 			const matchArr: any[] = matchCheck;
@@ -26,13 +26,15 @@ function Gameboard(props: any) {
 		if(!tiles[i].matched) {
 			gameBoard.push(
 				<Tile
+					library={library}
 					key={tiles[i].id}
 					index={tiles[i].id}
 					className="tile"
-					displayColor={tiles[i].clicked ? tiles[i].tileValue : tiles[i].defaultValue}
+					displayColor={library === 'color' && tiles[i].clicked ? tiles[i].tileValue : tiles[i].defaultValue}
 					incrementTurn={incrementTurn}
 					tileClickedToggle={tileClickedToggle}
 					matchHandler={matchHandler}
+					patp={library === 'urbit' && tiles[i].clicked ? tiles[i].tileValue : '~doz'}
 				/>
 			);
 		}
