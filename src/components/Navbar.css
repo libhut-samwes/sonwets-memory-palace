@@ -13,6 +13,10 @@
 	font-size: 20px;
 }
 
+#dashboard {
+	display: flex;
+}
+
 .reset-btn {
 	color: white;
 	background-color: #199319;

@@ -51,13 +51,13 @@ const tileChooser = (num: number, library: string) => {
 function Game(props: any) {
 	const { ship } = props;
 	const [library, setLibrary] = useState('urbit');
-	const [tileCount, setTileCount] = useState(0);
 	const [tiles, setTiles] = useState<Tile[]>([]);
 	const [turn, setTurn] = useState(0);
 	const [gameStarted, setGameStarted] = useState(false);
 	const [gameOver, setGameOver] = useState(false);
 
 	function libraryToggle(lib: string) {
+		console.log(lib);
 		setLibrary(lib);
 	}
 	function gameOverToggle(bool: boolean) {
