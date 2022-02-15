@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Navbar from './Navbar';
+import Welcome from './Welcome';
 import Gameboard from './Gameboard';
 import Footer from './Footer';
 const ob = require('urbit-ob');
@@ -50,14 +51,20 @@ const tileChooser = (num: number, library: string) => {
 
 function Game(props: any) {
 	const { ship } = props;
+	const [tileCount, setTileCount] = useState(24);
 	const [library, setLibrary] = useState('urbit');
 	const [tiles, setTiles] = useState<Tile[]>([]);
 	const [turn, setTurn] = useState(0);
 	const [gameStarted, setGameStarted] = useState(false);
 	const [gameOver, setGameOver] = useState(false);
 
+	function tileCountToggle(num: number) {
+		console.log(tileCount)
+		setTileCount(num);
+		console.log(tileCount)
+	}
 	function libraryToggle(lib: string) {
-		console.log(lib);
+		console.log(lib)
 		setLibrary(lib);
 	}
 	function gameOverToggle(bool: boolean) {
@@ -65,7 +72,7 @@ function Game(props: any) {
 	}
 	function gameStartedToggle(num: number) {
 		setGameStarted(true);
-		const drawTiles = tileChooser(num / 2, library);
+		const drawTiles = tileChooser(tileCount / 2, library);
 		setTiles(drawTiles);
 		
 	}
@@ -82,13 +89,32 @@ function Game(props: any) {
 		arr[i].matched = true;
 		setTiles(arr);
 	}
+	function welcomeHandler() {
+		if(!gameStarted && !gameOver) {
+			return (
+				<Welcome 
+					gameStart={gameStartedToggle}
+					libraryToggle={libraryToggle}
+					ship={ship}
+					library={library}
+					tileCount={tileCount}
+					tileCountToggle={tileCountToggle}
+				/>
+			)
+		}
+	}
+	function gameReset() {
+		setGameStarted(false);
+		setTiles([]);
+	}
 	return (
 		<>
 			<Navbar 
-				gameStart={gameStartedToggle}
-				libraryToggle={libraryToggle}
-				ship={ship}
+				gameStarted={gameStarted}
+				gameReset={gameReset}
+				gameOver={gameOver}
 			/>
+			{welcomeHandler()}
 			<Gameboard
 				library={library}
 				tiles={tiles}
