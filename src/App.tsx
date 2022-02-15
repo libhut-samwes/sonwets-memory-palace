@@ -11,11 +11,24 @@ function App() {
 	function setData() {
   	urbitVisor.getShip().then((res) => setShip(res.response));
 	}
-	console.log(ship)
+	function visorCheck() {
+		if(ship === '') {
+			return(
+				<>
+					<p>Confirming you have a ship and aren't poor</p>
+					<p>Need an <a href="https://urbit.live/">Urbit ID</a>?</p>
+					<p>Need to install <a href="https://github.com/dcSpark/urbit-visor">Urbit Visor</a>? (Also in the <a href="https://chrome.google.com/webstore/detail/urbit-visor/oadimaacghcacmfipakhadejgalcaepg">Chrome Web Store</a>)</p>
+				</>
+			)
+		}
+		else if(ship) {
+			return <Game ship={ship}/>
+		}
+	}
   return (
     <div className="App">
-			{ship ? <Game ship={ship}/> : <p>Confirming you have a ship and aren't poor</p>}
-    </div>
+    	{visorCheck()}
+		</div>
   );
 }
 
