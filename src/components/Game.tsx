@@ -50,7 +50,6 @@ const tileChooser = (num: number, library: string) => {
 }
 
 function Game(props: any) {
-	const { ship } = props;
 	const [tileCount, setTileCount] = useState(24);
 	const [library, setLibrary] = useState('urbit');
 	const [tiles, setTiles] = useState<Tile[]>([]);
@@ -95,7 +94,6 @@ function Game(props: any) {
 				<Welcome 
 					gameStart={gameStartedToggle}
 					libraryToggle={libraryToggle}
-					ship={ship}
 					library={library}
 					tileCount={tileCount}
 					tileCountToggle={tileCountToggle}
@@ -124,7 +122,6 @@ function Game(props: any) {
 			/>
 			<Footer 
 				turn={turn}
-				ship={ship}
 			/>
 		</>
 	);

@@ -4,7 +4,7 @@ import { MouseEvent } from 'react';
 import './Welcome.css';
 
 function Welcome(props: any) {
-	const { ship, library, tileCount, libraryToggle, tileCountToggle, gameStart } = props
+	const { library, tileCount, libraryToggle, tileCountToggle, gameStart } = props
 	const handleClick = (e: MouseEvent) => {
 		gameStart();
 	}
@@ -19,7 +19,7 @@ const handleDifficultySelect = (e: any) => tileCountToggle((difficulties.indexOf
 
 	return (
 		<div className="welcome">
-			<h3>You up for it, {ship}?</h3>
+			<h3>You up for it?</h3>
 			<div id="options">
 				<Dropdown 
 					className="dropdown"
